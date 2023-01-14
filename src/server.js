@@ -17,24 +17,10 @@ http.createServer(function (req, res) {
         </html> \
         ';
    
-    var matched = false;
-    var callback = null;
 
     for (var matcher of common.matchers) {
         if (req.url.startsWith(matcher.uriPrefix)) {
-            uriPrefix = matcher.uriPrefix;
-            proto = matcher.proto;
-            linkPath = matcher.linkPath;
-            callback = matcher.callback
-            matched = true
-            break;
+            matcher.callback()
         }
-    }
-    if (matched == true) {
-        callback()
-    } else {
-        res.writeHead(404, { "Content-Type": "text/plain" });
-        res.write("link not found");
-        res.end();
     }
 }).listen(process.env.PORT || 80);
