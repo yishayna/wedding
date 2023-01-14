@@ -1,5 +1,4 @@
 var util = require('util');
-var fs = require("fs");
 
 function redirect(uriPrefix, proto, linkPath) {
 
