@@ -13,12 +13,6 @@ function createPath(uriPrefix, proto, linkPath) {
     </html> \
     ';
 
-    () => {
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.end(util.format(htmlTemplate, uriPrefix, proto, linkPath, linkPath, linkPath));
-    }
-
-
     return {
         uriPrefix: uriPrefix,
         callback:  () => {
