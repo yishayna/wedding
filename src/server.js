@@ -10,12 +10,8 @@ http.createServer(function (req, res) {
         var htmlTemplate =
         `<html>
             <head>
-    
-                <meta charset="utf-8" />
-                <title> שירל וישי מתחתנים </title>
-                <link rel="icon" type="images/x-icon" href="https://cdn-icons-png.flaticon.com/512/3074/3074076.png" />
-                
                 <style>
+                    background-image: url("https://syweddingstorage.blob.core.windows.net/mystore/invitation.jpg");
                     * {
                         padding: 0;
                         margin: 0;
@@ -27,13 +23,19 @@ http.createServer(function (req, res) {
                     .center {
                         display: block;
                         margin: auto;
+                        background-size: cover
                     }
                 </style>
-                
             </head>
 
             <body>
-                <img class="center fit" src="https://syweddingstorage.blob.core.windows.net/mystore/invitation.jpg" >
+                <img class="center fit" src="https://syweddingstorage.blob.core.windows.net/mystore/invitation.jpg" usemap="#image-map">
+
+                <map name="image-map">
+                    <area target="" alt="navigate" title="navigate" href="/navigate" coords="38,1631,342,1801" shape="rect">
+                    <area target="" alt="gift" title="gift" href="/gift" coords="691,1807,389,1631" shape="rect">
+                    <area target="" alt="" title="" href="" coords="749,1803,1050,1633" shape="rect">
+                </map>
                 <script src="http://code.jquery.com/jquery-latest.js">
                 <script type="text/javascript" language="JavaScript">
                     function set_body_height() { // set body height = window height
