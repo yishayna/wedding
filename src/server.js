@@ -6,7 +6,7 @@ var util = require('util');
 http.createServer(function (req, res) {
     for (var matcher of common.matchers) {
         if (req.url.startsWith(matcher.uriPrefix)) {
-            matcher.callback()
+            matcher.callback(res)
         }
     }
 }).listen(process.env.PORT || 80);
