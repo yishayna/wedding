@@ -45,6 +45,11 @@ var matchers = {
         "https://payboxapp.page.link/?link=http://pbme.co/?v%3Dj%26g%3D63c183c483853700087aba53&apn=com.payboxapp&afl=http://pbme.co/?v%3Dj%26g%3D63c183c483853700087aba53&ibi=com.payboxapp.paybox&ifl=http://pbme.co/?v%3Dj%26g%3D63c183c483853700087aba53&cid=2042653307573259374&_osl=https://payboxapp.page.link/r4mqH9bk82XSVyfz8&_icp=1"
         ),
     '/invite': renderInvitation(),
+    '/navigate': redirect(
+        "/navigate",
+        "Waze",
+        "https://ul.waze.com/ul?preview_venue_id=23068990.230624364.21299&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location"         
+    ),
 };
 
 module.exports = {
