@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node server",
-    "test": "jest"
+    "start": "node server"
   },
   "license": "Apache-2.0",
   "engines": {
