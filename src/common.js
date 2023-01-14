@@ -22,29 +22,12 @@ function redirect(uriPrefix, proto, linkPath) {
     }
 }
 
-function renderInvitation() {
-
-    return (res) => {
-        res.writeHead(200, 
-            { 'Content-Type': 'image/jpg' }
-            );
-
-        fs.readFile("invitation.jpg",
-            function (err, content) {
-                // Serving the image
-                res.end(content);
-        });
-    
-    }
-}
-
 var matchers = {
     '/gift': redirect(
         "/gift",
         "PayBox",
         "https://payboxapp.page.link/r4mqH9bk82XSVyfz8"
         ),
-    '/invite': renderInvitation(),
     '/navigate': redirect(
         "/navigate",
         "Waze",
