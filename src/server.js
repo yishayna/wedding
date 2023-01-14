@@ -16,23 +16,22 @@ http.createServer(function (req, res) {
             </body> \
         </html> \
         ';
-    var uriPrefix = "";
-    var proto = "";
-    var linkPath = "";
-    var matched = false
+   
+    var matched = false;
+    var callback = null;
 
     for (var matcher of common.matchers) {
         if (req.url.startsWith(matcher.uriPrefix)) {
             uriPrefix = matcher.uriPrefix;
             proto = matcher.proto;
             linkPath = matcher.linkPath;
+            callback = matcher.callback
             matched = true
             break;
         }
     }
     if (matched == true) {
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.end(util.format(htmlTemplate, uriPrefix, proto, linkPath, linkPath, linkPath));
+        callback()
     } else {
         res.writeHead(404, { "Content-Type": "text/plain" });
         res.write("link not found");

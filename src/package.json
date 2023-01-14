@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node server"
+    "start": "node server",
+    "test": "jest"
   },
   "license": "Apache-2.0",
   "engines": {
@@ -11,5 +12,8 @@
   },
   "main": "server.js",
   "author": "",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "jest": "^29.3.1"
+  }
 }

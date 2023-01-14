@@ -1,8 +1,30 @@
 function createPath(uriPrefix, proto, linkPath) {
+
+    var htmlTemplate =
+    '<html> \
+        <head> \
+            <meta name="redirect" content="weddinglinkresolver.azurewebsites.net%s %s %s"> \
+            <meta http-equiv="refresh" content="0;URL=\'%s\'" /> \
+        </head> \
+        <body> \
+            <p>This link you are looking for is <a href="%s"> here</a>. \
+            </p> \
+        </body> \
+    </html> \
+    ';
+
+    () => {
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end(util.format(htmlTemplate, uriPrefix, proto, linkPath, linkPath, linkPath));
+    }
+
+
     return {
         uriPrefix: uriPrefix,
-        proto: proto,
-        linkPath, linkPath
+        callback:  () => {
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.end(util.format(htmlTemplate, uriPrefix, proto, linkPath, linkPath, linkPath));
+        }
     }
 }
 
