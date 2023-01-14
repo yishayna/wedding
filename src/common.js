@@ -1,6 +1,7 @@
 var util = require('util');
+var fs = require("fs");
 
-function createPath(uriPrefix, proto, linkPath) {
+function redirect(uriPrefix, proto, linkPath) {
 
     var htmlTemplate =
     '<html> \
@@ -15,20 +16,36 @@ function createPath(uriPrefix, proto, linkPath) {
     </html> \
     ';
 
-    return {
-        uriPrefix: uriPrefix,
-        callback:  (res) => {
-            res.writeHead(200, { 'Content-Type': 'text/html' });
-            res.end(util.format(htmlTemplate, uriPrefix, proto, linkPath, linkPath, linkPath));
-        }
+    return (res) => {
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end(util.format(htmlTemplate, uriPrefix, proto, linkPath, linkPath, linkPath));
     }
 }
 
-var matchers = [
-	createPath("/gift", 
-        "PAYBOX", 
-        "https://payboxapp.page.link/?link=http://pbme.co/?v%3Dj%26g%3D63c183c483853700087aba53&apn=com.payboxapp&afl=http://pbme.co/?v%3Dj%26g%3D63c183c483853700087aba53&ibi=com.payboxapp.paybox&ifl=http://pbme.co/?v%3Dj%26g%3D63c183c483853700087aba53&cid=2042653307573259374&_osl=https://payboxapp.page.link/r4mqH9bk82XSVyfz8&_icp=1"),
-];
+function renderInvitation() {
+
+    return (res) => {
+        res.writeHead(200, 
+            { 'Content-Type': 'image/jpg' }
+            );
+
+        fs.readFile("invitation.jpg",
+            function (err, content) {
+                // Serving the image
+                res.end(content);
+        });
+    
+    }
+}
+
+var matchers = {
+    '/gift': redirect(
+        "/gift",
+        "PayBox",
+        "https://payboxapp.page.link/?link=http://pbme.co/?v%3Dj%26g%3D63c183c483853700087aba53&apn=com.payboxapp&afl=http://pbme.co/?v%3Dj%26g%3D63c183c483853700087aba53&ibi=com.payboxapp.paybox&ifl=http://pbme.co/?v%3Dj%26g%3D63c183c483853700087aba53&cid=2042653307573259374&_osl=https://payboxapp.page.link/r4mqH9bk82XSVyfz8&_icp=1"
+        ),
+    '/invite': renderInvitation(),
+};
 
 module.exports = {
     matchers: matchers
