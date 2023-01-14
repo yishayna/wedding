@@ -10,6 +10,11 @@ http.createServer(function (req, res) {
         var htmlTemplate =
         `<html>
             <head>
+    
+                <meta charset="utf-8" />
+                <title> שירל וישי מתחתנים </title>
+                <link rel="icon" type="images/x-icon" href="https://cdn-icons-png.flaticon.com/512/3074/3074076.png" />
+                
                 <style>
                     * {
                         padding: 0;
@@ -24,6 +29,7 @@ http.createServer(function (req, res) {
                         margin: auto;
                     }
                 </style>
+                
             </head>
 
             <body>
