@@ -53,4 +53,7 @@ jobs:
           app-name: 'wedding-link-resolver'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9899AFA7199B43A2A5517071D264AF55 }}
-          package: .
+          package: src
+defaults:
+  run: 
+    working-directory: src
