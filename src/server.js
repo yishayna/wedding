@@ -1,7 +1,6 @@
 
 var common = require("./common");
 var http = require('http');
-var util = require('util');
 
 http.createServer(function (req, res) {
     for (var matcher of common.matchers) {
