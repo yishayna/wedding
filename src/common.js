@@ -26,10 +26,10 @@ function renderInvitation() {
 
     return (res) => {
         res.writeHead(200, 
-            { 'Content-Type': 'image/jpg' }
+            { 'Content-Type': 'image/png' }
             );
 
-        fs.readFile("invitation.jpg",
+        fs.readFile("invitation.png",
             function (err, content) {
                 // Serving the image
                 res.end(content);
