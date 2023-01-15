@@ -10,42 +10,18 @@ http.createServer(function (req, res) {
         var htmlTemplate =
         `<html>
             <head>
-                <style>
-                    background-image: url("https://syweddingstorage.blob.core.windows.net/mystore/invitation.jpg");
-                    * {
-                        padding: 0;
-                        margin: 0;
-                    }
-                    .fit { /* set relative picture size */
-                        max-width: 100%;
-                        max-height: 100%;
-                    }
-                    .center {
-                        display: block;
-                        margin: auto;
-                        background-size: cover
-                    }
-                </style>
+                <meta charset="utf-8" />
+                <title> שירל וישי מתחתנים </title>\
+                <link rel="icon" type="images/x-icon" href="https://cdn-icons-png.flaticon.com/512/3074/3074076.png" />
             </head>
 
             <body>
-                <img class="center fit" src="https://syweddingstorage.blob.core.windows.net/mystore/invitation.jpg" usemap="#image-map">
-
-                <map name="image-map">
-                    <area target="" alt="navigate" title="navigate" href="/navigate" coords="38,1631,342,1801" shape="rect">
-                    <area target="" alt="gift" title="gift" href="/gift" coords="691,1807,389,1631" shape="rect">
-                    <area target="" alt="" title="" href="" coords="749,1803,1050,1633" shape="rect">
-                </map>
-                <script src="http://code.jquery.com/jquery-latest.js">
-                <script type="text/javascript" language="JavaScript">
-                    function set_body_height() { // set body height = window height
-                        $('body').height($(window).height());
-                    }
-                    $(document).ready(function() {
-                        $(window).bind('resize', set_body_height);
-                        set_body_height();
-                    });
-                </script>
+               <div style="position: relative; width: 100%; height: 0; padding-top: 177.7778%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
+                  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+                    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFXrizGz4k&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+                  </iframe>
+               </div>
+                <a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFXrizGz4k&#x2F;view?utm_content=DAFXrizGz4k&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">
             </body>
         </html>`;
 
